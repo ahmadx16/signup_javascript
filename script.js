@@ -30,21 +30,18 @@ function checkEmpty(id) {
 const IsPasswordValid = (passwordId, repasswordId) => {
     var password = document.getElementById(passwordId)
     var repassword = document.getElementById(repasswordId)
-
+    invalidInput(password)
+    invalidInput(repassword)
     if (password.value != repassword.value) {
-        // after .5 seconds
-
         createError("Passwords must match")
-        invalidInput(password)
-        invalidInput(repassword)
         return false
     }
-    if (!IsPasswordLengthValid(password.value)) {
-        invalidInput(password)
-        invalidInput(repassword)
+    if (!IsPasswordLengthValid(password.value)) 
         return false
-    }
-    return true
+    
+    validInput(password)
+    validInput(repassword)
+
 }
 
 
@@ -74,11 +71,9 @@ function invalidInput(input) {
 function createError(errorText) {
     var tag = document.createElement("p");
     tag.classList.add("text-danger");
-
-    var text = document.createTextNode(errorText);
-    tag.appendChild(text);
-    var element = document.getElementById("errors");
-    element.appendChild(tag);
+    tag.appendChild(document.createTextNode(errorText));
+    
+    document.getElementById("errors").appendChild(tag);
 
     // Display error for 3 seconds
     setTimeout(function () {
