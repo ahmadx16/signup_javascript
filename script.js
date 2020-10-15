@@ -1,3 +1,22 @@
+function validateForm() {
+    let validations = []
+    let emptyValidations = [
+        checkEmpty("firstname"),
+        checkEmpty("lastname"),
+        checkEmpty("email"),
+        checkEmpty("password"),
+        checkEmpty("repassword"),
+    ]
+    validations = [
+        ...validations,
+        !emptyValidations.includes(false),
+        IsPasswordValid('password', 'repassword')
+    ]
+    // returns false if any of the validations has returned false
+    return !validations.includes(false)
+}
+
+
 function checkEmpty(id) {
     var input = document.getElementById(id)
     if (input.value == "") {
@@ -6,13 +25,15 @@ function checkEmpty(id) {
     }
     validInput(input)
 }
+
+
 const IsPasswordValid = (passwordId, repasswordId) => {
     var password = document.getElementById(passwordId)
     var repassword = document.getElementById(repasswordId)
 
     if (password.value != repassword.value) {
         // after .5 seconds
-        
+
         createError("Passwords must match")
         invalidInput(password)
         invalidInput(repassword)
@@ -26,6 +47,7 @@ const IsPasswordValid = (passwordId, repasswordId) => {
     return true
 }
 
+
 function IsPasswordLengthValid(password) {
     if (password.length < 6) {
         createError("Passwords must contains atleast 6 characters")
@@ -34,24 +56,6 @@ function IsPasswordLengthValid(password) {
     return true
 }
 
-function validateForm() {
-    let validations = []
-    let emptyValidations = [
-        checkEmpty("firstname"),
-        checkEmpty("lastname"),
-        checkEmpty("email"),
-        checkEmpty("password"),
-        checkEmpty("repassword"),
-    ]
-
-    validations = [
-        ...validations,
-        !emptyValidations.includes(false),
-        IsPasswordValid('password', 'repassword')
-    ]
-
-    return !validations.includes(false)
-}
 
 function validInput(input) {
     // styling input fields to green
@@ -59,11 +63,13 @@ function validInput(input) {
     input.classList.add("is-valid");
 }
 
+
 function invalidInput(input) {
     // styling input fields to red
     input.classList.remove("is-valid");
     input.classList.add("is-invalid");
 }
+
 
 function createError(errorText) {
     var tag = document.createElement("p");
@@ -73,7 +79,7 @@ function createError(errorText) {
     tag.appendChild(text);
     var element = document.getElementById("errors");
     element.appendChild(tag);
-    
+
     // Display error for 3 seconds
     setTimeout(function () {
         tag.remove();

@@ -1,6 +1,6 @@
 # Sign Up Form
 
-A simple *Sign Up* form which is validated via javascript. In case of invalid input the errors are inserted to DOM elements on runtime via javascript. Moreover the form inputs borders are also dynamicaly changed to *red* or *green* based on valid or invalid input respectively.
+A simple *Sign Up* form which is validated via javascript. In case of invalid input the errors are inserted to DOM elements on runtime via javascript. Moreover the form inputs borders are also dynamically changed to *red* or *green* based on valid or invalid input respectively.
 
 ## Interface
 
@@ -23,7 +23,7 @@ Clone this repository and switch to the `signup` branch as it currently contains
 
 ``` shell
 git clone https://github.com/ahmadx16/signup_javascript.git
-cd signup/
+cd signup_javascript/
 git checkout signup
 ``` 
 
