@@ -7,7 +7,7 @@ A simple *Sign Up* form which is validated via javascript. In case of invalid in
 It has a responsive interface!
 
 
-![Sign Up Errors](readme_files/signup_errors.png)
+![Sign Up Form](readme_files/signup_demo.gif)
 
 ## Instructions
 
